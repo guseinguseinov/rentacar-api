@@ -1,0 +1,27 @@
+user:
+     firstName 
+     lastName
+     age 
+     email
+     phone
+     password
+salon: 
+     name
+     email
+     phone
+     address
+     password
+     cars
+salon/cars:
+     name
+     car-number
+     brand 
+     type
+     seatsNumber  <-- bunu sonra da elave ederem
+     transmission
+rental:
+     user
+     salon/car
+     expiresAt
+     rentAt
+ 
