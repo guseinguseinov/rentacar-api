@@ -1,4 +1,4 @@
-import mongoose, { mongo } from 'mongoose';
+import mongoose from 'mongoose';
 
 const rentalSchema = new mongoose.Schema({
     user: {
@@ -6,7 +6,7 @@ const rentalSchema = new mongoose.Schema({
         ref: "users",
         required:true,
     },
-    cars: {
+    car: {
         type: "ObjectId",
         ref: "cars",
         required: true,
