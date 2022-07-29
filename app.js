@@ -1,5 +1,6 @@
 import express from 'express';
 import userRoute from './routes/userRoute.js';
+import salonRoute from './routes/salonRoute.js';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
@@ -12,5 +13,5 @@ const app = express();
 app.use(express.json());
 
 app.use('/users', userRoute);
-
+app.use('/salons', salonRoute);
 export default app;
