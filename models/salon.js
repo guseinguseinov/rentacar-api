@@ -7,7 +7,7 @@ const salonSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    createdBy: {
+    user: {
         type: "ObjectId",
         ref: "users",
         required: true,

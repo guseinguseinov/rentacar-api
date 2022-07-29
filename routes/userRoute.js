@@ -34,7 +34,6 @@ userRoute.post('/login', async (req, res) => {
 
     if(user) {
         const { password , ...restData} = user.toObject();
-        console.log(restData)
         const token = generateAccessToken(restData);
         return res.json( generateResponse(200, 'Access token generated', token));
     }

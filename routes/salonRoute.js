@@ -1,7 +1,6 @@
 import express from 'express';
 import generateResponse from '../global/index.js';
 import { authenticateToken, authenticateTokenSalons } from '../middleware/auth.js';
-import UserModel from '../models/user.js';
 import SalonModel from '../models/salon.js';
 
 const salonRoute = express.Router();
@@ -27,14 +26,21 @@ salonRoute.post('/create', authenticateToken , async (req, res) => {
 });
 
 salonRoute.get('/all', async (req, res) => {
-    const allSalons = await SalonModel.find();
+    const allSalons = await SalonModel.find().populate('user').exec();
     res.status(200).json(generateResponse(200, null, allSalons));
 });
 
-salonRoute.get('/all/:id', async (req, res) => {
-    const salon = await SalonModel.findById(req.params.id);
+salonRoute.get('/all/:salonId', async (req, res) => {
+    const salon = await SalonModel.findById(req.params.salonId).populate('user').exec();
     res.status(200).json(generateResponse(200, null, salon));
 });
+
+salonRoute.get('/all/:userId', async (req, res) => {
+    const usersSalons = await SalonModel.find( {"user": { _id: req.params.userId} }).populate('user').exec();
+    res.send(usersSalons);
+    res.status(200).json( generateResponse(200, null, usersSalons));
+}); 
+
 
 
 export default salonRoute;
