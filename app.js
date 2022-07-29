@@ -3,6 +3,7 @@ import userRoute from './routes/userRoute.js';
 import salonRoute from './routes/salonRoute.js';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import carRoute from './routes/carRoute.js';
 
 dotenv.config();
 
@@ -14,4 +15,6 @@ app.use(express.json());
 
 app.use('/users', userRoute);
 app.use('/salons', salonRoute);
+app.use('/cars', carRoute);
+
 export default app;

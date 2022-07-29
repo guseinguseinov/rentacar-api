@@ -35,7 +35,7 @@ function authenticateTokenSalons(req, res, next) {
       if (err) return res.sendStatus(403);
 
       if (user.role == 'user') {
-        return res.status(401).json(generateResponse(401, 'User cannot add a salon', null));
+        return res.status(401).json(generateResponse(401, 'User cannot add a salon or car', null));
       }
       req.user = user;
       next();

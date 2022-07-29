@@ -7,8 +7,7 @@ const salonRoute = express.Router();
 
 salonRoute.get('/create', authenticateTokenSalons, async (req, res) => {
     res.status(200).json( generateResponse(200, 'User can add Salon', null));
-})
-
+});
 
 salonRoute.post('/create', authenticateToken , async (req, res) => {
     const newSalon = new SalonModel({
@@ -30,14 +29,13 @@ salonRoute.get('/all', async (req, res) => {
     res.status(200).json(generateResponse(200, null, allSalons));
 });
 
-salonRoute.get('/all/:salonId', async (req, res) => {
+salonRoute.get('/:salonId', async (req, res) => {
     const salon = await SalonModel.findById(req.params.salonId).populate('user').exec();
     res.status(200).json(generateResponse(200, null, salon));
 });
 
 salonRoute.get('/all/:userId', async (req, res) => {
     const usersSalons = await SalonModel.find( {"user": { _id: req.params.userId} }).populate('user').exec();
-    res.send(usersSalons);
     res.status(200).json( generateResponse(200, null, usersSalons));
 }); 
 

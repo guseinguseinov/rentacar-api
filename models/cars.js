@@ -32,6 +32,6 @@ const carSchema = new mongoose.Schema({
     timestamps: true,
 }); 
 
-const CarModel = mongoose.models('cars', carSchema);
+const CarModel = mongoose.model('cars', carSchema);
 
 export default CarModel;
