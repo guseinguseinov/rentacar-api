@@ -4,10 +4,12 @@ const rentalSchema = new mongoose.Schema({
     user: {
         type: "ObjectId",
         ref: "users",
+        required:true,
     },
     cars: {
         type: "ObjectId",
         ref: "cars",
+        required: true,
     },
     expDate: {
         type: Date,
@@ -17,6 +19,8 @@ const rentalSchema = new mongoose.Schema({
         type: Date,
         default: Date.now(),
     }
+},{
+    timestamps:true, 
 });
 
 const RentalModel = mongoose.model('rentals', rentalSchema);

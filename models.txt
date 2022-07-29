@@ -5,13 +5,6 @@ user:
      email
      phone
      password
-salon: 
-     name
-     email
-     phone
-     address
-     password
-     cars
 salon/cars:
      name
      car-number
