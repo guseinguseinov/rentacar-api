@@ -1,8 +1,9 @@
-function generateResponse(status, success, message, data) {
+function generateResponse(status, message, data) {
     return {
         status,
-        success,
         message,
         data // burda da obyekt gondere bilersen 
     }
 }
+
+export default generateResponse;

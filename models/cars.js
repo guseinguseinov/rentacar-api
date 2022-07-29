@@ -25,7 +25,7 @@ const carSchema = new mongoose.Schema({
     }, // sedan zad
     salon: {
         type: 'ObjectId',
-        ref: "users",
+        ref: "salons",
         required: true,
     }
 }, {
